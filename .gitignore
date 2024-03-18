@@ -60,6 +60,14 @@ Build/*/**
 # Don't ignore icon files in Build
 !Build/**/*.ico
 
+# Do not ignore current project's `.uproject`.
+!/*.uproject
+
+# Do not ignore source, config and plugins dirs.
+!/Source/**
+!/Config/**
+!/Plugins/**
+
 # Built data for maps
 *_BuiltData.uasset
 
