@@ -10,14 +10,12 @@ UTriggerComponent::UTriggerComponent()
 	// off to improve performance if you don't need them.
 	PrimaryComponentTick.bCanEverTick = true;
 
-	// ...
 }
 
 // Called when the game starts
 void UTriggerComponent::BeginPlay()
 {
 	Super::BeginPlay();
-	UE_LOG(LogTemp, Display, TEXT("Utrigger Component Alive"));
 	
 }
 
@@ -25,5 +23,10 @@ void UTriggerComponent::BeginPlay()
 void UTriggerComponent::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction)
 {
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
+	TArray<AActor*> Actors;
+	GetOverlappingActors(Actors);
 
+	if(Actors.Num() > 0){
+		UE_LOG(LogTemp, Display, TEXT("Overlaped Actor Name is : %s"), *Actors[0]->GetActorNameOrLabel());
+	}
 }
