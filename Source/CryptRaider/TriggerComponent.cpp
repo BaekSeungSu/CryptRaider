@@ -58,4 +58,3 @@ AActor* UTriggerComponent::GetAcceptableActor() const
 	}
 	return nullptr;
 }
-
