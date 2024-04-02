@@ -46,11 +46,7 @@ void UGrabber::Release()
 {
 	UPhysicsHandleComponent* PhysicsHandle = GetPhysicsHandle();
 
-	if(PhysicsHandle == nullptr){
-		return;
-	}
-
-	if(PhysicsHandle->GetGrabbedComponent() != nullptr){
+	if(PhysicsHandle && PhysicsHandle->GetGrabbedComponent()){
 		PhysicsHandle->GetGrabbedComponent()->WakeAllRigidBodies();
 		AActor* GrabbedActor = PhysicsHandle->GetGrabbedComponent()->GetOwner();
 		GrabbedActor->Tags.Remove("Grabbed");
